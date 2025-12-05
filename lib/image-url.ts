@@ -1,5 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url'
 import { client, isSanityConfigured } from './sanity/client'
+import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
 
 // Cria um builder dummy quando o Sanity não está configurado
 const dummyClient = {
@@ -16,18 +17,18 @@ const dummyBuilder = {
   image: () => ({
     width: () => ({
       height: () => ({
-        url: () => null,
+        url: () => null as any,
       }),
-      url: () => null,
+      url: () => null as any,
     }),
     height: () => ({
-      url: () => null,
+      url: () => null as any,
     }),
-    url: () => null,
+    url: () => null as any,
   }),
-}
+} as any as ImageUrlBuilder
 
-export function urlFor(source: any) {
+export function urlFor(source: any): ImageUrlBuilder {
   if (!source) {
     return dummyBuilder
   }
@@ -37,7 +38,7 @@ export function urlFor(source: any) {
   }
   
   try {
-    return builder.image(source)
+    return builder.image(source) as ImageUrlBuilder
   } catch (error) {
     console.warn('Erro ao processar imagem do Sanity:', error)
     return dummyBuilder
