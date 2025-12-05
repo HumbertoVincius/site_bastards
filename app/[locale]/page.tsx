@@ -5,7 +5,6 @@ import { beersQuery } from '@/lib/sanity/queries'
 import { mockBeers } from '@/lib/sanity/mock-data'
 import BeerCard from '@/components/BeerCard'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import Image from 'next/image'
 
 export default async function HomePage({ params }: { params: { locale: string } }) {
   const { locale } = await params
@@ -18,28 +17,6 @@ export default async function HomePage({ params }: { params: { locale: string } 
 
   return (
     <>
-      {/* Hero Image Section */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-        <Image
-          src="/images/hero-image.png"
-          alt="Bastards Brewery"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-dark-900/40 flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">
-              {t('title')}
-            </h1>
-            <p className="text-xl md:text-3xl text-gray-200 drop-shadow-md">
-              {t('subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
-
       <Hero />
       
       {/* Manifesto Section */}
