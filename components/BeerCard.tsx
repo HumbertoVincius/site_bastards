@@ -8,12 +8,20 @@ interface BeerCardProps {
   name: string
   type: string
   image?: any
+  localImage?: string | null
   slug?: { current: string }
   onClick?: () => void
 }
 
-export default function BeerCard({ name, type, image, slug, onClick }: BeerCardProps) {
-  const imageUrl = image ? urlFor(image)?.width(400)?.height(400)?.url() || null : null
+export default function BeerCard({ name, type, image, localImage, slug, onClick }: BeerCardProps) {
+  // Prioriza imagem local, depois Sanity, depois null
+  let imageUrl: string | null = null
+  
+  if (localImage) {
+    imageUrl = localImage
+  } else if (image) {
+    imageUrl = urlFor(image)?.width(400)?.height(400)?.url() || null
+  }
 
   return (
     <motion.div
@@ -32,6 +40,7 @@ export default function BeerCard({ name, type, image, slug, onClick }: BeerCardP
             fill
             className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized={localImage ? true : false}
           />
         </div>
       )}

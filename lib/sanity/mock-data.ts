@@ -9,6 +9,7 @@ export const mockBeers = [
     abv: 5.0,
     ibu: 15,
     slug: { current: 'jean-le-blanc' },
+    localImage: '/images/cervejas/jean_thumb-1.png',
   },
   {
     _id: '2',
@@ -18,6 +19,7 @@ export const mockBeers = [
     abv: 4.8,
     ibu: 18,
     slug: { current: 'ze-do-morro' },
+    localImage: '/images/cervejas/zedomorro_thumb.png',
   },
   {
     _id: '3',
@@ -27,6 +29,7 @@ export const mockBeers = [
     abv: 5.5,
     ibu: 35,
     slug: { current: 'willie-the-bitter' },
+    localImage: '/images/cervejas/willie_thumb.png',
   },
   {
     _id: '4',
@@ -36,6 +39,7 @@ export const mockBeers = [
     abv: 7.5,
     ibu: 65,
     slug: { current: 'pina-a-viva' },
+    localImage: '/images/cervejas/pina_thumb.png',
   },
   {
     _id: '5',
@@ -45,6 +49,7 @@ export const mockBeers = [
     abv: 6.0,
     ibu: 25,
     slug: { current: 'mark-the-shadow' },
+    localImage: '/images/cervejas/mark_thumb.png',
   },
   {
     _id: '6',
@@ -54,6 +59,7 @@ export const mockBeers = [
     abv: 6.5,
     ibu: 70,
     slug: { current: 'hector-5-rounds' },
+    localImage: '/images/cervejas/hector_thumb.png',
   },
   {
     _id: '7',
@@ -63,6 +69,7 @@ export const mockBeers = [
     abv: 6.2,
     ibu: 45,
     slug: { current: 'juicy-jill' },
+    localImage: '/images/cervejas/juicy_thumb.png',
   },
   {
     _id: '8',
@@ -71,6 +78,7 @@ export const mockBeers = [
     description: 'Gin artesanal com botânicos selecionados',
     abv: 40,
     slug: { current: 'gin-bastardo' },
+    localImage: null, // Sem imagem ainda
   },
 ]
 

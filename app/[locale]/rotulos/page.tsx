@@ -84,6 +84,7 @@ export default function RotulosPage() {
                 name={beer.name}
                 type={beer.type}
                 image={beer.image}
+                localImage={beer.localImage}
                 slug={beer.slug}
               />
             ))}

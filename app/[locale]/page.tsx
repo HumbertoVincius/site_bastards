@@ -83,6 +83,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
                   name={beer.name}
                   type={beer.type}
                   image={beer.image}
+                  localImage={beer.localImage}
                   slug={beer.slug}
                 />
               ))}
