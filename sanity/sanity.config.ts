@@ -1,16 +1,18 @@
-import { defineConfig } from 'sanity'
-import { structureTool } from 'sanity/structure'
-import { schemaTypes } from './schemas'
+import {defineConfig} from 'sanity'
+import {structureTool} from 'sanity/structure'
+import {visionTool} from '@sanity/vision'
+import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Bastards Brewery CMS',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  basePath: '/studio',
-  plugins: [structureTool()],
+  title: 'site_bastards',
+
+  projectId: '3gcxu0lg',
+  dataset: 'production',
+
+  plugins: [structureTool(), visionTool()],
+
   schema: {
     types: schemaTypes,
   },
 })
-
