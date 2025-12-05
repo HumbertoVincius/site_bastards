@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "manifesto": "Manifesto",
+    "rotulos": "Rótulos",
+    "tour": "Tour na Fábrica",
+    "eventos": "Eventos",
+    "contato": "Contato",
+    "store": "Store"
+  },
+  "home": {
+    "title": "Bastards Brewery",
+    "subtitle": "We are bastards",
+    "manifestoTitle": "MANIFESTO",
+    "manifestoText": "We are bastards, seguimos na contramão. Pensamento livre: ser aquilo que quiser ser, fazer o que quiser fazer. Sem medos, sem preconceitos. Ser bastardo é ter suas próprias regras e quebrá-las sempre que preciso. A cada vitória um novo porre – e a cada derrota outro ainda maior. Seguimos sempre em frente com um copo cheio na mão e sede no olhar. Deixamos para trás o que não é essencial. Na bagagem, uma jaqueta para os dias frios. Força e coragem para os dias quentes. Coragem de ir mais longe, não importa para onde a estrada nos leve. Encontramos a nossa identidade. Sabemos quem somos e para o que viemos.",
+    "manifestoEnd": "We are bastards. Who the fuck are you?",
+    "readMore": "Ver Mais",
+    "breweryTitle": "A cervejaria",
+    "breweryText": "Foi entre um porre e outro de alguns amigos que nasceu a Bastards, em 2013. Um projeto desafiador que veio para mudar a vida de três empreendedores que deixaram para trás os medos e a estabilidade para se aventurar no mercado da cerveja artesanal. E hoje, ser bastardo vai além da cerveja, virou um estilo de vida.",
+    "breweryLocation": "Localizada em Curitiba, a cervejaria possui canal de vendas em todo Brasil. Quer ter a Bastards em seu estabelecimento ou saber onde encontra nossas cervejas? É só entrar em contato.",
+    "knowBeers": "Conheça as cervejas"
+  },
+  "rotulos": {
+    "title": "Rótulos",
+    "subtitle": "A cada novo rótulo um novo personagem. Porque todo bastardo tem sempre muita história para contar.",
+    "filterAll": "All",
+    "noBeers": "Nenhuma cerveja encontrada"
+  },
+  "bastards": {
+    "title": "Os Bastards"
+  },
+  "tour": {
+    "title": "Tour na Fábrica",
+    "subtitle": "Venha conhecer nossa fábrica e ver como fazemos nossas cervejas",
+    "formTitle": "Agende sua visita",
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "date": "Data preferida",
+    "message": "Mensagem",
+    "submit": "Enviar"
+  },
+  "eventos": {
+    "title": "Eventos",
+    "noEvents": "Nenhum evento agendado no momento"
+  },
+  "contato": {
+    "title": "Contato",
+    "factory": "Fábrica",
+    "address": "Rua Comendador Lustoza de Andrade, 69 - Bom Retiro, Curitiba/PR",
+    "phone": "+55 (41) 99172-0050",
+    "sendMessage": "Envie sua mensagem",
+    "name": "Nome",
+    "email": "E-mail",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "submit": "Enviar"
+  },
+  "footer": {
+    "rights": "All Rights Reserved, 2024"
+  }
+}
+

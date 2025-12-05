@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "manifesto": "Manifesto",
+    "rotulos": "Labels",
+    "tour": "Factory Tour",
+    "eventos": "Events",
+    "contato": "Contact",
+    "store": "Store"
+  },
+  "home": {
+    "title": "Bastards Brewery",
+    "subtitle": "We are bastards",
+    "manifestoTitle": "MANIFESTO",
+    "manifestoText": "We are bastards, we go against the grain. Free thinking: be whatever you want to be, do whatever you want to do. Without fears, without prejudices. Being a bastard is having your own rules and breaking them whenever necessary. Every victory a new binge – and every defeat an even bigger one. We always move forward with a full glass in hand and thirst in our eyes. We leave behind what is not essential. In our luggage, a jacket for cold days. Strength and courage for hot days. Courage to go further, no matter where the road takes us. We found our identity. We know who we are and what we came for.",
+    "manifestoEnd": "We are bastards. Who the fuck are you?",
+    "readMore": "Read More",
+    "breweryTitle": "The brewery",
+    "breweryText": "It was between one binge and another of some friends that Bastards was born, in 2013. A challenging project that came to change the lives of three entrepreneurs who left behind fears and stability to venture into the craft beer market. And today, being a bastard goes beyond beer, it became a lifestyle.",
+    "breweryLocation": "Located in Curitiba, the brewery has sales channels throughout Brazil. Want to have Bastards in your establishment or know where to find our beers? Just get in touch.",
+    "knowBeers": "Know the beers"
+  },
+  "rotulos": {
+    "title": "Labels",
+    "subtitle": "Each new label a new character. Because every bastard always has a lot of stories to tell.",
+    "filterAll": "All",
+    "noBeers": "No beers found"
+  },
+  "bastards": {
+    "title": "The Bastards"
+  },
+  "tour": {
+    "title": "Factory Tour",
+    "subtitle": "Come visit our factory and see how we make our beers",
+    "formTitle": "Schedule your visit",
+    "name": "Name",
+    "email": "E-mail",
+    "phone": "Phone",
+    "date": "Preferred date",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "eventos": {
+    "title": "Events",
+    "noEvents": "No events scheduled at the moment"
+  },
+  "contato": {
+    "title": "Contact",
+    "factory": "Factory",
+    "address": "Rua Comendador Lustoza de Andrade, 69 - Bom Retiro, Curitiba/PR",
+    "phone": "+55 (41) 99172-0050",
+    "sendMessage": "Send your message",
+    "name": "Name",
+    "email": "E-mail",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "footer": {
+    "rights": "All Rights Reserved, 2024"
+  }
+}
+
