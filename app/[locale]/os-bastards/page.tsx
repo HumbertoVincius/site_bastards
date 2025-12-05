@@ -3,9 +3,11 @@ import { foundersQuery } from '@/lib/sanity/queries'
 import { mockFounders } from '@/lib/sanity/mock-data'
 import Image from 'next/image'
 import { urlFor } from '@/lib/image-url'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export default async function OsBastardsPage({ params }: { params: { locale: string } }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations()
   
   const founders = await fetchWithFallback(foundersQuery, mockFounders)

@@ -4,9 +4,11 @@ import { mockEvents } from '@/lib/sanity/mock-data'
 import { formatDate } from '@/lib/utils'
 import Image from 'next/image'
 import { urlFor } from '@/lib/image-url'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export default async function EventosPage({ params }: { params: { locale: string } }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations()
   
   const events = await fetchWithFallback(eventsQuery, mockEvents)

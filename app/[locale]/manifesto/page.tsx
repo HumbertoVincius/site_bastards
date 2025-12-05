@@ -1,8 +1,10 @@
 import { isSanityConfigured, client } from '@/lib/sanity/client'
 import { manifestoQuery } from '@/lib/sanity/queries'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export default async function ManifestoPage({ params }: { params: { locale: string } }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations()
   
   let content = t('home.manifestoText')
