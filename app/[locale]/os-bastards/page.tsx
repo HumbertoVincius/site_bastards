@@ -20,7 +20,14 @@ export default async function OsBastardsPage({ params }: { params: { locale: str
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {founders.map((founder: any) => {
-            const imageUrl = founder.photo ? urlFor(founder.photo)?.width(400)?.height(400)?.url() || null : null
+            // Prioriza imagem local, depois Sanity, depois null
+            let imageUrl: string | null = null
+            if (founder.localImage) {
+              imageUrl = founder.localImage
+            } else if (founder.photo) {
+              imageUrl = urlFor(founder.photo)?.width(400)?.height(400)?.url() || null
+            }
+            
             return (
               <div
                 key={founder._id}
@@ -34,6 +41,7 @@ export default async function OsBastardsPage({ params }: { params: { locale: str
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      unoptimized={founder.localImage ? true : false}
                     />
                   </div>
                 )}

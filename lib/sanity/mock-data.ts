@@ -87,16 +87,19 @@ export const mockFounders = [
     _id: '1',
     name: 'Xico',
     bio: 'Um dos fundadores da Bastards Brewery, apaixonado por cerveja artesanal.',
+    localImage: '/images/fundadores/francisco.png',
   },
   {
     _id: '2',
     name: 'Humberto',
     bio: 'Co-fundador da Bastards, especialista em produção cervejeira.',
+    localImage: '/images/fundadores/humberto.png',
   },
   {
     _id: '3',
     name: 'Richard',
     bio: 'Fundador da Bastards Brewery, visionário do projeto desde 2013.',
+    localImage: '/images/fundadores/richard.png',
   },
 ]
 
