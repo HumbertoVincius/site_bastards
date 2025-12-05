@@ -1,7 +1,8 @@
 import Hero from '@/components/Hero'
 import { Link } from '@/navigation'
-import { client } from '@/lib/sanity/client'
+import { fetchWithFallback } from '@/lib/sanity/client'
 import { beersQuery } from '@/lib/sanity/queries'
+import { mockBeers } from '@/lib/sanity/mock-data'
 import BeerCard from '@/components/BeerCard'
 import { getTranslations } from 'next-intl/server'
 
@@ -9,8 +10,9 @@ export default async function HomePage({ params }: { params: { locale: string } 
   const { locale } = await params
   const t = await getTranslations()
   
-  // Fetch featured beers (limit to 6)
-  const beers = await client.fetch(beersQuery).then((beers: any[]) => beers.slice(0, 6)).catch(() => [])
+  // Fetch featured beers (limit to 6) com fallback para dados mock
+  const allBeers = await fetchWithFallback(beersQuery, mockBeers)
+  const beers = allBeers.slice(0, 6)
 
   return (
     <>

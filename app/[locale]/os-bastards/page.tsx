@@ -1,5 +1,6 @@
-import { client } from '@/lib/sanity/client'
+import { fetchWithFallback } from '@/lib/sanity/client'
 import { foundersQuery } from '@/lib/sanity/queries'
+import { mockFounders } from '@/lib/sanity/mock-data'
 import Image from 'next/image'
 import { urlFor } from '@/lib/image-url'
 import { getTranslations } from 'next-intl/server'
@@ -7,11 +8,7 @@ import { getTranslations } from 'next-intl/server'
 export default async function OsBastardsPage({ params }: { params: { locale: string } }) {
   const t = await getTranslations()
   
-  const founders = await client.fetch(foundersQuery).catch(() => [
-    { _id: '1', name: 'Xico', photo: null, bio: null },
-    { _id: '2', name: 'Humberto', photo: null, bio: null },
-    { _id: '3', name: 'Richard', photo: null, bio: null },
-  ])
+  const founders = await fetchWithFallback(foundersQuery, mockFounders)
 
   return (
     <section className="min-h-screen py-20 bg-dark-900">
@@ -21,7 +18,7 @@ export default async function OsBastardsPage({ params }: { params: { locale: str
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {founders.map((founder: any) => {
-            const imageUrl = founder.photo ? urlFor(founder.photo).width(400).height(400).url() : null
+            const imageUrl = founder.photo ? urlFor(founder.photo)?.width(400)?.height(400)?.url() || null : null
             return (
               <div
                 key={founder._id}

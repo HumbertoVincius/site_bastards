@@ -13,7 +13,7 @@ interface BeerCardProps {
 }
 
 export default function BeerCard({ name, type, image, slug, onClick }: BeerCardProps) {
-  const imageUrl = image ? urlFor(image).width(400).height(400).url() : null
+  const imageUrl = image ? urlFor(image)?.width(400)?.height(400)?.url() || null : null
 
   return (
     <motion.div

@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { client } from '@/lib/sanity/client'
+import { fetchWithFallback, isSanityConfigured } from '@/lib/sanity/client'
 import { beersQuery } from '@/lib/sanity/queries'
+import { mockBeers } from '@/lib/sanity/mock-data'
 import BeerCard from '@/components/BeerCard'
 import FilterBar from '@/components/FilterBar'
 
@@ -16,15 +17,10 @@ export default function RotulosPage() {
 
   useEffect(() => {
     async function fetchBeers() {
-      try {
-        const data = await client.fetch(beersQuery)
-        setBeers(data)
-        setFilteredBeers(data)
-      } catch (error) {
-        console.error('Error fetching beers:', error)
-      } finally {
-        setLoading(false)
-      }
+      const data = await fetchWithFallback(beersQuery, mockBeers)
+      setBeers(data)
+      setFilteredBeers(data)
+      setLoading(false)
     }
     fetchBeers()
   }, [])

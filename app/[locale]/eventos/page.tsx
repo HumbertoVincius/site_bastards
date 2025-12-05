@@ -1,5 +1,6 @@
-import { client } from '@/lib/sanity/client'
+import { fetchWithFallback } from '@/lib/sanity/client'
 import { eventsQuery } from '@/lib/sanity/queries'
+import { mockEvents } from '@/lib/sanity/mock-data'
 import { formatDate } from '@/lib/utils'
 import Image from 'next/image'
 import { urlFor } from '@/lib/image-url'
@@ -8,7 +9,7 @@ import { getTranslations } from 'next-intl/server'
 export default async function EventosPage({ params }: { params: { locale: string } }) {
   const t = await getTranslations()
   
-  const events = await client.fetch(eventsQuery).catch(() => [])
+  const events = await fetchWithFallback(eventsQuery, mockEvents)
 
   return (
     <section className="min-h-screen py-20 bg-dark-900">
@@ -24,7 +25,7 @@ export default async function EventosPage({ params }: { params: { locale: string
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {events.map((event: any) => {
-              const imageUrl = event.image ? urlFor(event.image).width(600).height(400).url() : null
+              const imageUrl = event.image ? urlFor(event.image)?.width(600)?.height(400)?.url() || null : null
               return (
                 <div
                   key={event._id}
