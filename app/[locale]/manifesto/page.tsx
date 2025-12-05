@@ -1,5 +1,3 @@
-import { isSanityConfigured, client } from '@/lib/sanity/client'
-import { manifestoQuery } from '@/lib/sanity/queries'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export default async function ManifestoPage({ params }: { params: { locale: string } }) {
@@ -7,17 +5,8 @@ export default async function ManifestoPage({ params }: { params: { locale: stri
   setRequestLocale(locale)
   const t = await getTranslations()
   
-  let content = t('home.manifestoText')
-  if (isSanityConfigured && client) {
-    try {
-      const manifesto = await client.fetch(manifestoQuery)
-      if (manifesto?.content) {
-        content = manifesto.content
-      }
-    } catch (error) {
-      console.warn('Erro ao buscar manifesto do Sanity:', error)
-    }
-  }
+  // Usa texto das traduções diretamente
+  const content = t('home.manifestoText')
 
   return (
     <section className="min-h-screen py-20 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900">

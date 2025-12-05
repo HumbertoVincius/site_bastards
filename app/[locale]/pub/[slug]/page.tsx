@@ -1,13 +1,10 @@
-import { fetchWithFallback, fetchOneWithFallback, isSanityConfigured, client } from '@/lib/sanity/client'
-import { pubBySlugQuery, pubsQuery } from '@/lib/sanity/queries'
 import { mockPubs } from '@/lib/sanity/mock-data'
-import { urlFor } from '@/lib/image-url'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const pubs = await fetchWithFallback(pubsQuery, mockPubs)
-  return pubs.map((pub: any) => ({
+  // Usa dados mock diretamente
+  return mockPubs.map((pub: any) => ({
     slug: pub.slug.current,
   }))
 }
@@ -15,25 +12,15 @@ export async function generateStaticParams() {
 export default async function PubPage({ params }: { params: { slug: string } }) {
   const { slug } = await params
   
-  let pub
-  if (isSanityConfigured && client) {
-    try {
-      pub = await client.fetch(pubBySlugQuery, { slug })
-    } catch (error) {
-      console.warn('Erro ao buscar pub do Sanity, usando dados de exemplo:', error)
-    }
-  }
-  
-  if (!pub) {
-    pub = mockPubs.find((p: any) => p.slug.current === slug) || null
-  }
+  // Busca pub nos dados mock
+  const pub = mockPubs.find((p: any) => p.slug.current === slug) || null
 
   if (!pub) {
     notFound()
   }
 
-  const mainImage = pub.images?.[0]
-  const imageUrl = mainImage ? urlFor(mainImage)?.width(1200)?.height(600)?.url() || null : null
+  // Usa apenas imagens locais
+  const imageUrl = pub.localImage || null
 
   return (
     <section className="min-h-screen py-20 bg-dark-900">
@@ -75,28 +62,6 @@ export default async function PubPage({ params }: { params: { slug: string } }) 
             )}
           </div>
 
-          {pub.images && pub.images.length > 1 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              {pub.images.slice(1).map((image: any, index: number) => {
-                const imgUrl = urlFor(image)?.width(600)?.height(400)?.url() || null
-                if (!imgUrl) return null
-                return (
-                  <div
-                    key={index}
-                    className="relative w-full h-48 rounded-lg overflow-hidden"
-                  >
-                    <Image
-                      src={imgUrl}
-                      alt={`${pub.name} - Imagem ${index + 2}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                )
-              })}
-            </div>
-          )}
         </div>
       </div>
     </section>

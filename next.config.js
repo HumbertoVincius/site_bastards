@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-      },
-    ],
+    remotePatterns: [],
   },
-  // Configuração para o Sanity Studio
-  transpilePackages: ['next-sanity'],
   // Configuração para styled-components
   compiler: {
     styledComponents: true,

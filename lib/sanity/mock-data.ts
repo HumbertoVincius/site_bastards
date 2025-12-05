@@ -1,4 +1,4 @@
-// Dados de exemplo para quando o Sanity não estiver configurado
+// Dados mock do projeto
 
 export const mockBeers = [
   {

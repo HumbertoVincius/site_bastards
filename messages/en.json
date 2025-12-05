@@ -6,6 +6,7 @@
     "tour": "Factory Tour",
     "eventos": "Events",
     "contato": "Contact",
+    "trabalheConosco": "Work With Us",
     "store": "Store"
   },
   "home": {
@@ -55,6 +56,32 @@
     "subject": "Subject",
     "message": "Message",
     "submit": "Submit"
+  },
+  "trabalheConosco": {
+    "title": "Work With Us",
+    "subtitle": "Join the Bastards team! We are always looking for people passionate about beer and committed to excellence.",
+    "selectLocation": "Where do you want to work?",
+    "pub": "Pub",
+    "fabrica": "Factory",
+    "pubDescription": "Work in a relaxed and lively environment, serving the best craft beers.",
+    "fabricaDescription": "Participate in the production of our beers, working directly in manufacturing.",
+    "formTitle": "Application Form",
+    "name": "Full name",
+    "email": "E-mail",
+    "phone": "Phone",
+    "position": "Desired position",
+    "positionPlaceholder": "Ex: Waiter, Bartender, Brewer, etc.",
+    "experience": "Professional experience",
+    "experiencePlaceholder": "Tell us about your professional experience...",
+    "resume": "Resume",
+    "resumeHint": "Accepted formats: PDF, DOC, DOCX (max. 5MB)",
+    "message": "Additional message",
+    "messagePlaceholder": "Tell us more about yourself and why you want to work with us...",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "selectLocationError": "Please select a location (Pub or Factory) before submitting the form.",
+    "successMessage": "Application submitted successfully! We will contact you soon.",
+    "errorMessage": "Error submitting application. Please try again."
   },
   "footer": {
     "rights": "All Rights Reserved, 2024"

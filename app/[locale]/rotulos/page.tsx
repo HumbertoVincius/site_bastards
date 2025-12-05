@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { fetchWithFallback, isSanityConfigured } from '@/lib/sanity/client'
-import { beersQuery } from '@/lib/sanity/queries'
 import { mockBeers } from '@/lib/sanity/mock-data'
 import BeerCard from '@/components/BeerCard'
 import FilterBar from '@/components/FilterBar'
@@ -13,16 +11,13 @@ export default function RotulosPage() {
   const [beers, setBeers] = useState<any[]>([])
   const [filteredBeers, setFilteredBeers] = useState<any[]>([])
   const [activeFilter, setActiveFilter] = useState('all')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    async function fetchBeers() {
-      const data = await fetchWithFallback(beersQuery, mockBeers)
-      setBeers(data)
-      setFilteredBeers(data)
-      setLoading(false)
-    }
-    fetchBeers()
+    // Usa dados mock diretamente
+    setBeers(mockBeers)
+    setFilteredBeers(mockBeers)
+    setLoading(false)
   }, [])
 
   useEffect(() => {

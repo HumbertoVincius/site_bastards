@@ -19,13 +19,15 @@ npm install
 ```
 
 2. Configure as variáveis de ambiente:
-```bash
-cp .env.example .env.local
-```
 
-Edite `.env.local` e adicione suas credenciais do Sanity:
-- `NEXT_PUBLIC_SANITY_PROJECT_ID` - ID do seu projeto Sanity
-- `NEXT_PUBLIC_SANITY_DATASET` - Dataset (geralmente "production")
+Crie um arquivo `.env.local` na raiz do projeto e adicione:
+
+**Para envio de emails (formulário de candidatura):**
+- `SMTP_HOST` - Servidor SMTP (ex: smtp.gmail.com)
+- `SMTP_PORT` - Porta SMTP (ex: 587)
+- `SMTP_USER` - Usuário do email SMTP
+- `SMTP_PASSWORD` - Senha do email SMTP
+- `SMTP_FROM` - Email remetente (opcional, usa SMTP_USER se não definido)
 
 3. Configure o Sanity Studio:
 ```bash
@@ -71,19 +73,17 @@ site_bastards/
 - `/tour` - Agendamento de tour na fábrica
 - `/eventos` - Lista de eventos
 - `/contato` - Formulário de contato
+- `/trabalhe-conosco` - Formulário de candidatura para vagas
 - `/store` - Loja online (em breve)
 - `/pub/[slug]` - Páginas dos pubs
 
-## Sanity CMS
+## Funcionalidades
 
-O site utiliza Sanity CMS para gerenciar todo o conteúdo. Os schemas disponíveis são:
+### Envio de Emails
 
-- **Beer** - Cervejas/Produtos
-- **Founder** - Fundadores
-- **Event** - Eventos
-- **Pub** - Bares/Pubs
-- **Manifesto** - Conteúdo do manifesto
-- **Settings** - Configurações gerais
+O formulário de candidatura (`/trabalhe-conosco`) envia emails para `humberto@bastards.com.br` usando Nodemailer. Configure as variáveis de ambiente SMTP conforme descrito acima.
+
+**Nota:** Para Gmail, você precisará usar uma "Senha de App" ao invés da senha normal da conta. Veja mais em: https://support.google.com/accounts/answer/185833
 
 ## Build
 

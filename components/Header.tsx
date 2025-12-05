@@ -18,6 +18,7 @@ export default function Header() {
     { href: '/tour', label: t('tour') },
     { href: '/eventos', label: t('eventos') },
     { href: '/contato', label: t('contato') },
+    { href: '/trabalhe-conosco', label: t('trabalheConosco') },
     { href: '/store', label: t('store') },
   ]
 

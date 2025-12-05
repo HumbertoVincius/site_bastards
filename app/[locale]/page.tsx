@@ -1,7 +1,5 @@
 import Hero from '@/components/Hero'
 import { Link } from '@/navigation'
-import { fetchWithFallback } from '@/lib/sanity/client'
-import { beersQuery } from '@/lib/sanity/queries'
 import { mockBeers } from '@/lib/sanity/mock-data'
 import BeerCard from '@/components/BeerCard'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
@@ -11,9 +9,8 @@ export default async function HomePage({ params }: { params: { locale: string } 
   setRequestLocale(locale)
   const t = await getTranslations()
   
-  // Fetch featured beers (limit to 6) com fallback para dados mock
-  const allBeers = await fetchWithFallback(beersQuery, mockBeers)
-  const beers = allBeers.slice(0, 6)
+  // Usa dados mock diretamente
+  const beers = mockBeers.slice(0, 6)
 
   return (
     <>

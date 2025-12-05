@@ -1,8 +1,5 @@
-import { fetchWithFallback } from '@/lib/sanity/client'
-import { foundersQuery } from '@/lib/sanity/queries'
 import { mockFounders } from '@/lib/sanity/mock-data'
 import Image from 'next/image'
-import { urlFor } from '@/lib/image-url'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 export default async function OsBastardsPage({ params }: { params: { locale: string } }) {
@@ -10,7 +7,8 @@ export default async function OsBastardsPage({ params }: { params: { locale: str
   setRequestLocale(locale)
   const t = await getTranslations()
   
-  const founders = await fetchWithFallback(foundersQuery, mockFounders)
+  // Usa dados mock diretamente
+  const founders = mockFounders
 
   return (
     <section className="min-h-screen py-20 bg-dark-900">
@@ -20,13 +18,8 @@ export default async function OsBastardsPage({ params }: { params: { locale: str
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {founders.map((founder: any) => {
-            // Prioriza imagem local, depois Sanity, depois null
-            let imageUrl: string | null = null
-            if (founder.localImage) {
-              imageUrl = founder.localImage
-            } else if (founder.photo) {
-              imageUrl = urlFor(founder.photo)?.width(400)?.height(400)?.url() || null
-            }
+            // Usa apenas imagem local
+            const imageUrl = founder.localImage || null
             
             return (
               <div
